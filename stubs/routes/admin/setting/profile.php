@@ -9,4 +9,6 @@ Route::prefix(config("adminer.route.admin"))->middleware(config("adminer.middlew
      * Settings Profiles.
      */
     Route::apiResource("profiles", ProfileAdminController::class)->parameters([ "profiles" => "variable", ]);
+    Route::post("profiles-import", [ ProfileAdminController::class, "import", ]);
+    Route::get("profiles-export", [ ProfileAdminController::class, "export", ]);
 });
