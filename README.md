@@ -8,7 +8,7 @@ Getting Started
 Installation :
 
 ```
-$ composer require tripteki/laravelphp-setting-profile
+composer require tripteki/laravelphp-setting-profile
 ```
 
 How to use it :
@@ -24,7 +24,7 @@ php artisan vendor:publish --tag=tripteki-laravelphp-setting-profile-migrations
 - Migrate.
 
 ```
-$ php artisan migrate
+php artisan migrate
 ```
 
 - Publish tests file into your project's directory with running (optionally) :
