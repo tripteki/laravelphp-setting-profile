@@ -29,8 +29,10 @@ class SettingProfileEnvironmentRepository implements ISettingProfileEnvironmentR
         $content = QueryBuilder::for(Environment::class)->
         defaultSort("variable")->
         allowedSorts([ "variable", "value", ])->
-        allowedFilters([ "variable", "value", ])->
-        paginate($limit, [ "*", ], "current_page", $current_page)->appends(empty($querystring) ? request()->query() : $querystringed);
+        allowedFilters([ "variable", "value", ]);
+
+        if ($limit < 1) $content = $content->get();
+        else $content = $content->paginate($limit, [ "*", ], "current_page", $current_page)->appends(empty($querystring) ? request()->query() : $querystringed);
 
         return EnvironmentResource::collection($content);
     }
