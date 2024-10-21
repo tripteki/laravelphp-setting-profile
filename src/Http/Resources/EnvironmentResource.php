@@ -18,7 +18,7 @@ class EnvironmentResource extends JsonResource
     {
         return [
 
-            "variable" => Str::replaceFirst(ProfileStrictScope::space(null), "", $this->variable),
+            "variable" => Str::replaceFirst(ProfileStrictScope::space(null), "", $this->variable ?? $this->key),
             "value" => $this->value,
         ];
     }
